@@ -16,12 +16,12 @@ const DefaultInput = ({type, name, required, ...options}) => (
   />
 )
 
-const HorizontalField = ({label, type = 'text', name = 'Default Name', required = true, children, ...options}) => {
+const HorizontalField = ({label, type = 'text', name = 'Default Name', required = true, children, className, ...options}) => {
   const default_input = (
     <DefaultInput name={name} required={required} {...options}/>
   )
   return (
-    <FormGroup row>
+    <FormGroup row className={className}>
       <Label for={parameterize(name)} sm={4}>{label ? label : name}{required ? '*' : ''}</Label>
       <Col sm={8}>
         {children ?  children : default_input}
