@@ -27,9 +27,9 @@ export default () => (
 )
 ```
 
-#### Options and defaults
+### Options and defaults
 
-##### <NormalField/> Default Props
+##### NormalField Default Props
 ```js
 label,
 name: 'Default Name', // used to generate id on <input/> and for on <label/>
@@ -41,7 +41,7 @@ className, // on <FormGroup/>
 ```
 
 
-##### <HorizontalField/> Default Props
+##### HorizontalField Default Props
 ```js
 label,
 type: 'text',
@@ -52,7 +52,7 @@ className, // on <FormGroup/>
 ...options // passed to <input/>
 ```
 
-##### <Checkbox/> Default Props
+##### Checkbox Default Props
 ```js
 name: 'Default Name', // used to generate id on <input/> and for on <label/>
 text,
