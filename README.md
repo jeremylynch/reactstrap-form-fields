@@ -34,7 +34,7 @@ export default Form
 #### Options and defaults
 
 ##### NormalField Default Properties
-```
+```js
 label,
 name: "Default Name', // used to generate id on <input/> and for on <label/>
 type: 'text',
