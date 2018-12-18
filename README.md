@@ -21,7 +21,7 @@ export default () => (
   <FormGroup row>
     <Label for="full-name" sm={4}>Full Name</Label>
     <Col sm={8}>
-    <Input id="full-name" type="text" name="Full Name" placeholder="Full Name" required={true}/>
+      <Input id="full-name" type="text" name="Full Name" placeholder="Full Name" required={true}/>
     </Col>
   </FormGroup>
 )
