@@ -32,8 +32,8 @@ const HorizontalField = ({label, type = 'text', name = 'Default Name', required 
 
 const Checkbox = ({name, text, ...options}) => (
   <FormGroup check className="mb-2">
-    <Label check>
-      <Input type="checkbox" name={name} {...options}/>{' '}
+    <Label for={parameterize(name)} check>
+      <Input id={parameterize(name)} type="checkbox" name={name} {...options}/>{' '}
       {text}
     </Label>
   </FormGroup>
