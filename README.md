@@ -29,7 +29,7 @@ export default () => (
 
 ## Installation
 
-```js
+```bash
 npm i reactstrap-form-fields
 ```
 
