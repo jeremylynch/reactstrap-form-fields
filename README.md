@@ -1,5 +1,5 @@
 # reactstrap-form-fields
-Shorten your (https://github.com/reactstrap/reactstrap)[reactstrap] form fields! 
+Shorten your reactstrap[https://github.com/reactstrap/reactstrap] form fields! 
 
 #### Horizontal Field Example
 ```js
@@ -33,11 +33,23 @@ export default Form
 
 #### Options and defaults
 
-##### NormalField Default Properties
+##### NormalField Default Props
 ```js
 label,
 name: 'Default Name', // used to generate id on <input/> and for on <label/>
 type: 'text',
+required: true, 
+children,  // replaces <input/>
+className, // on <FormGroup/>
+...options // passed to <input/>
+```
+
+
+##### HorizontalField Default Props
+```js
+label,
+type: 'text',
+name: 'Default Name', // used to generate id on <input/> and for on <label/>
 required: true, 
 children,  // replaces <input/>
 className, // on <FormGroup/>
