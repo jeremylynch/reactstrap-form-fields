@@ -1,5 +1,5 @@
 # reactstrap-form-fields
-Shorten your reactstrap[https://github.com/reactstrap/reactstrap] form fields! 
+Shorten your [reactstrap](https://github.com/reactstrap/reactstrap) form fields! 
 
 #### Horizontal Field Example
 ```js
