@@ -7,7 +7,7 @@ import React from 'react'
 import {HorizontalField} from 'reactstrap-form-fields'
 
 const Form = () => (
-  <HorizontalField label="Full Name" name="Full Name" required={true} type="text"/>
+  <HorizontalField name="Full Name"/>
 )
 
 export default Form
@@ -21,7 +21,7 @@ import {Container, FormGroup, Label, Col, Input} from 'reactstrap'
 
 const Form = () => (
   <FormGroup row>
-    <Label for="Full Name" sm={4}>Full Name</Label>
+    <Label for="full-name" sm={4}>Full Name</Label>
     <Col sm={8}>
     <Input id="full-name" type="text" name="Full Name" placeholder="Full Name" required={true}/>
     </Col>
