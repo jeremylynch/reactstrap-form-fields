@@ -6,11 +6,9 @@ Shorten your [reactstrap](https://github.com/reactstrap/reactstrap) form fields!
 import React from 'react'
 import {HorizontalField} from 'reactstrap-form-fields'
 
-const Form = () => (
+export default () => (
   <HorizontalField name="Full Name"/>
 )
-
-export default Form
 ```
 
 Instead of this: 
@@ -19,7 +17,7 @@ Instead of this:
 import React from 'react'
 import {Container, FormGroup, Label, Col, Input} from 'reactstrap'
 
-const Form = () => (
+export default () => (
   <FormGroup row>
     <Label for="full-name" sm={4}>Full Name</Label>
     <Col sm={8}>
@@ -27,8 +25,6 @@ const Form = () => (
     </Col>
   </FormGroup>
 )
-
-export default Form
 ```
 
 #### Options and defaults
