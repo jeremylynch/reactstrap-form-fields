@@ -63,4 +63,39 @@ const NormalField = ({
   )
 }
 
-export {HorizontalField, NormalField, Checkbox};
+const components = {
+  horizontal: HorizontalField,
+  normal: NormalField
+}
+
+const SelectOptions = ({options, name, defaultValue, ...opts}) => (
+  <Input type="select" id={parameterize(name)} name={name} defaultValue={defaultValue} {...opts}>
+    {options.map((option, i) => (
+      <option key={i} value={option.name}>{option.name}</option>
+    ))}
+  </Input>
+)
+
+const Select = ({
+  label,
+  fieldType = 'horizontal',
+  name = 'Default Name',
+  required= true,
+  options,
+  defaultValue,
+  ...opts
+}) => {
+  const Field = components[fieldType]
+  return (
+    <Field label={label} name={name}>
+      {options ? <SelectOptions
+        name={name}
+        options={options}
+        defaultValue={defaultValue}
+        {...opts}
+      /> : null}
+    </Field>
+  )
+}
+
+export {HorizontalField, NormalField, Checkbox, Select};
