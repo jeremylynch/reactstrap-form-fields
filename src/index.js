@@ -71,7 +71,7 @@ const components = {
 const SelectOptions = ({options, name, defaultValue, ...opts}) => (
   <Input type="select" id={parameterize(name)} name={name} defaultValue={defaultValue} {...opts}>
     {options.map((option, i) => (
-      <option key={i} value={option.name}>{option.name}</option>
+      <option key={i} value={option.value}>{option.name}</option>
     ))}
   </Input>
 )
