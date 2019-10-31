@@ -1,5 +1,5 @@
 # reactstrap-form-fields
-Shorten your [reactstrap](https://github.com/reactstrap/reactstrap) form fields!
+Shorten (and improve) your [reactstrap](https://github.com/reactstrap/reactstrap) form fields!
 
 #### HorizontalField Example
 ```js
@@ -64,3 +64,6 @@ name: 'Default Name', // used to generate id on <input/> and for on <label/>
 text,
 ...options // passed to <input/>
 ```
+
+#### Contribute to this repository
+* After making change run `npm run build` to rebuild
