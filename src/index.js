@@ -12,6 +12,7 @@ const DefaultInput = ({type, name, required, ...options}) => (
     name={name}
     placeholder={name}
     required={required}
+    aria-label={name}
     {...options}
   />
 )

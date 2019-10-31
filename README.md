@@ -1,5 +1,5 @@
 # reactstrap-form-fields
-Shorten your [reactstrap](https://github.com/reactstrap/reactstrap) form fields! 
+Shorten your [reactstrap](https://github.com/reactstrap/reactstrap) form fields!
 
 #### HorizontalField Example
 ```js
@@ -11,7 +11,7 @@ export default () => (
 )
 ```
 
-Instead of this: 
+Instead of this:
 
 ```js
 import React from 'react'
@@ -21,7 +21,7 @@ export default () => (
   <FormGroup row>
     <Label for="full-name" sm={4}>Full Name</Label>
     <Col sm={8}>
-      <Input id="full-name" type="text" name="Full Name" placeholder="Full Name" required={true}/>
+      <Input id="full-name" type="text" name="Full Name" placeholder="Full Name" aria-label="Full Name" required={true}/>
     </Col>
   </FormGroup>
 )
@@ -40,7 +40,7 @@ npm i reactstrap-form-fields
 label,
 name: 'Default Name', // used to generate id on <input/> and for on <label/>
 type: 'text',
-required: true, 
+required: true,
 children,  // replaces <input/>
 className, // on <FormGroup/>
 ...options // passed to <input/>
@@ -52,7 +52,7 @@ className, // on <FormGroup/>
 label,
 type: 'text',
 name: 'Default Name', // used to generate id on <input/> and for on <label/>
-required: true, 
+required: true,
 children,  // replaces <input/>
 className, // on <FormGroup/>
 ...options // passed to <input/>
