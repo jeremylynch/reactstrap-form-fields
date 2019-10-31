@@ -1,6 +1,6 @@
 {
   "name": "reactstrap-form-fields",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Simple form fields for Reactstrap",
   "main": "build/index.js",
   "directories": {
