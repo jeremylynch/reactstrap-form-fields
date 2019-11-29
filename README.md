@@ -65,5 +65,16 @@ text,
 ...options // passed to <input/>
 ```
 
+##### Select Default Props
+```js
+label,
+fieldType = 'horizontal',
+name = 'Default Name',
+required= true,
+options, // passed as JSON array or hash eg. [{value: 1, name: 'One'}] or [1, 2, 3]
+defaultValue,
+...options
+```
+
 #### Contribute to this repository
 * After making change run `npm run build` to rebuild

@@ -19,7 +19,7 @@ const DefaultInput = ({type, name, required, ...options}) => (
 
 const HorizontalField = ({label, type = 'text', name = 'Default Name', required = true, children, className, ...options}) => {
   const default_input = (
-    <DefaultInput name={name} required={required} {...options}/>
+    <DefaultInput name={name} required={required} type={type} {...options}/>
   )
   return (
     <FormGroup row className={className}>
@@ -53,7 +53,7 @@ const NormalField = ({
   const default_input = <DefaultInput type={type} name={name} required={required} {...options}/>
   const input = children == null ? default_input : children
   const asterix = required && label
-  const labelIfPresent = label != false ? (
+  const labelIfPresent = label !== false ? (
     <Label for={parameterize(name)}>{label_text}{asterix ? '*' : ''}</Label>
   ) : ''
   return (
@@ -72,7 +72,7 @@ const components = {
 const SelectOptions = ({options, name, defaultValue, ...opts}) => (
   <Input type="select" id={parameterize(name)} name={name} defaultValue={defaultValue} {...opts}>
     {options.map((option, i) => (
-      <option key={i} value={option.value}>{option.name}</option>
+      <option key={i} value={option.value}>{option.name ? option.name : option.value}</option>
     ))}
   </Input>
 )
@@ -87,11 +87,20 @@ const Select = ({
   ...opts
 }) => {
   const Field = components[fieldType]
+  let selectHash = options
+  // can pass either simple array eg. [1, 2, 3]
+  // or can pass array with objects [{name: 1, value: 1}, {name: 2, value: 2}]
+  // if simple array, must be converted into objects
+  if (Array.isArray(options) && options[0].constructor !== Object) {
+    selectHash = options.map(option => {
+      return {value: option}
+    })
+  }
   return (
-    <Field label={label} name={name}>
+    <Field label={label} name={name} required={required}>
       {options ? <SelectOptions
         name={name}
-        options={options}
+        options={selectHash}
         defaultValue={defaultValue}
         {...opts}
       /> : null}
