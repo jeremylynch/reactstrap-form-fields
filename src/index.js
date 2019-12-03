@@ -97,12 +97,11 @@ const Select = ({
     })
   }
   return (
-    <Field label={label} name={name} required={required}>
+    <Field label={label} name={name} required={required} {...opts}>
       {options ? <SelectOptions
         name={name}
         options={selectHash}
         defaultValue={defaultValue}
-        {...opts}
       /> : null}
     </Field>
   )
