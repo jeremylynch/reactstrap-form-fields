@@ -5,7 +5,12 @@ function parameterize(string) {
   return string.trim().toLowerCase().replace(/[^a-zA-Z0-9 -]/, "").replace(/\s/g, "-")
 }
 
-const DefaultInput = ({type, name, required, ...options}) => (
+const DefaultInput = ({
+  type,
+  name,
+  required,
+  ...options
+}) => (
   <Input
     id={parameterize(name)}
     type={type}
@@ -17,7 +22,15 @@ const DefaultInput = ({type, name, required, ...options}) => (
   />
 )
 
-const HorizontalField = ({label, type = 'text', name = 'Default Name', required = true, children, className, ...options}) => {
+const HorizontalField = ({
+  label,
+  type = 'text',
+  name = 'Default Name',
+  required = true,
+  children,
+  className,
+  ...options
+}) => {
   const default_input = (
     <DefaultInput name={name} required={required} type={type} {...options}/>
   )
@@ -52,7 +65,7 @@ const NormalField = ({
   const label_text = typeof label !== 'undefined' ? label : name;
   const default_input = <DefaultInput type={type} name={name} required={required} {...options}/>
   const input = children == null ? default_input : children
-  const asterix = required && label
+  const asterix = required && (label != false)
   const labelIfPresent = label !== false ? (
     <Label for={parameterize(name)}>{label_text}{asterix ? '*' : ''}</Label>
   ) : ''
@@ -81,7 +94,7 @@ const Select = ({
   label,
   fieldType = 'horizontal',
   name = 'Default Name',
-  required= true,
+  required = true,
   options,
   defaultValue,
   ...opts

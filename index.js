@@ -27,7 +27,7 @@ var DefaultInput = function DefaultInput(_ref) {
       required = _ref.required,
       options = _objectWithoutProperties(_ref, ["type", "name", "required"]);
 
-  return _react["default"].createElement(_reactstrap.Input, _extends({
+  return /*#__PURE__*/_react["default"].createElement(_reactstrap.Input, _extends({
     id: parameterize(name),
     type: type,
     name: name,
@@ -49,19 +49,19 @@ var HorizontalField = function HorizontalField(_ref2) {
       className = _ref2.className,
       options = _objectWithoutProperties(_ref2, ["label", "type", "name", "required", "children", "className"]);
 
-  var default_input = _react["default"].createElement(DefaultInput, _extends({
+  var default_input = /*#__PURE__*/_react["default"].createElement(DefaultInput, _extends({
     name: name,
     required: required,
     type: type
   }, options));
 
-  return _react["default"].createElement(_reactstrap.FormGroup, {
+  return /*#__PURE__*/_react["default"].createElement(_reactstrap.FormGroup, {
     row: true,
     className: className
-  }, _react["default"].createElement(_reactstrap.Label, {
+  }, /*#__PURE__*/_react["default"].createElement(_reactstrap.Label, {
     "for": parameterize(name),
     sm: 4
-  }, label ? label : name, required ? '*' : ''), _react["default"].createElement(_reactstrap.Col, {
+  }, label ? label : name, required ? '*' : ''), /*#__PURE__*/_react["default"].createElement(_reactstrap.Col, {
     sm: 8
   }, children ? children : default_input));
 };
@@ -73,13 +73,13 @@ var Checkbox = function Checkbox(_ref3) {
       text = _ref3.text,
       options = _objectWithoutProperties(_ref3, ["name", "text"]);
 
-  return _react["default"].createElement(_reactstrap.FormGroup, {
+  return /*#__PURE__*/_react["default"].createElement(_reactstrap.FormGroup, {
     check: true,
     className: "mb-2"
-  }, _react["default"].createElement(_reactstrap.Label, {
+  }, /*#__PURE__*/_react["default"].createElement(_reactstrap.Label, {
     "for": parameterize(name),
     check: true
-  }, _react["default"].createElement(_reactstrap.Input, _extends({
+  }, /*#__PURE__*/_react["default"].createElement(_reactstrap.Input, _extends({
     id: parameterize(name),
     type: "checkbox",
     name: name
@@ -102,18 +102,18 @@ var NormalField = function NormalField(_ref4) {
 
   var label_text = typeof label !== 'undefined' ? label : name;
 
-  var default_input = _react["default"].createElement(DefaultInput, _extends({
+  var default_input = /*#__PURE__*/_react["default"].createElement(DefaultInput, _extends({
     type: type,
     name: name,
     required: required
   }, options));
 
   var input = children == null ? default_input : children;
-  var asterix = required && label;
-  var labelIfPresent = label !== false ? _react["default"].createElement(_reactstrap.Label, {
+  var asterix = required && label != false;
+  var labelIfPresent = label !== false ? /*#__PURE__*/_react["default"].createElement(_reactstrap.Label, {
     "for": parameterize(name)
   }, label_text, asterix ? '*' : '') : '';
-  return _react["default"].createElement(_reactstrap.FormGroup, {
+  return /*#__PURE__*/_react["default"].createElement(_reactstrap.FormGroup, {
     className: className
   }, labelIfPresent, input);
 };
@@ -130,13 +130,13 @@ var SelectOptions = function SelectOptions(_ref5) {
       defaultValue = _ref5.defaultValue,
       opts = _objectWithoutProperties(_ref5, ["options", "name", "defaultValue"]);
 
-  return _react["default"].createElement(_reactstrap.Input, _extends({
+  return /*#__PURE__*/_react["default"].createElement(_reactstrap.Input, _extends({
     type: "select",
     id: parameterize(name),
     name: name,
     defaultValue: defaultValue
   }, opts), options.map(function (option, i) {
-    return _react["default"].createElement("option", {
+    return /*#__PURE__*/_react["default"].createElement("option", {
       key: i,
       value: option.value
     }, option.name ? option.name : option.value);
@@ -168,15 +168,15 @@ var Select = function Select(_ref6) {
     });
   }
 
-  return _react["default"].createElement(Field, {
+  return /*#__PURE__*/_react["default"].createElement(Field, _extends({
     label: label,
     name: name,
     required: required
-  }, options ? _react["default"].createElement(SelectOptions, _extends({
+  }, opts), options ? /*#__PURE__*/_react["default"].createElement(SelectOptions, {
     name: name,
     options: selectHash,
     defaultValue: defaultValue
-  }, opts)) : null);
+  }) : null);
 };
 
 exports.Select = Select;
