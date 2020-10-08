@@ -82,10 +82,12 @@ const components = {
   normal: NormalField
 }
 
-const SelectOptions = ({options, name, defaultValue, ...opts}) => (
-  <Input type="select" id={parameterize(name)} name={name} defaultValue={defaultValue} {...opts}>
+const SelectOptions = ({options, name, defaultValue, required, ...opts}) => (
+  <Input type="select" id={parameterize(name)} name={name} defaultValue={defaultValue} {...opts} required={required}>
     {options.map((option, i) => (
-      <option key={i} value={option.value}>{option.name ? option.name : option.value}</option>
+      <option key={i} value={option.value} disabled={option.disabled ? option.disabled : false}>
+        {option.name ? option.name : option.value}
+      </option>
     ))}
   </Input>
 )
@@ -102,7 +104,7 @@ const Select = ({
   const Field = components[fieldType]
   let selectHash = options
   // can pass either simple array eg. [1, 2, 3]
-  // or can pass array with objects [{name: 1, value: 1}, {name: 2, value: 2}]
+  // or can pass array with objects [{name: 1, value: 1, disabled: true}, {name: 2, value: 2}]
   // if simple array, must be converted into objects
   if (Array.isArray(options) && options[0].constructor !== Object) {
     selectHash = options.map(option => {
@@ -115,6 +117,7 @@ const Select = ({
         name={name}
         options={selectHash}
         defaultValue={defaultValue}
+        required={required}
       /> : null}
     </Field>
   )

@@ -128,17 +128,21 @@ var SelectOptions = function SelectOptions(_ref5) {
   var options = _ref5.options,
       name = _ref5.name,
       defaultValue = _ref5.defaultValue,
-      opts = _objectWithoutProperties(_ref5, ["options", "name", "defaultValue"]);
+      required = _ref5.required,
+      opts = _objectWithoutProperties(_ref5, ["options", "name", "defaultValue", "required"]);
 
   return /*#__PURE__*/_react["default"].createElement(_reactstrap.Input, _extends({
     type: "select",
     id: parameterize(name),
     name: name,
     defaultValue: defaultValue
-  }, opts), options.map(function (option, i) {
+  }, opts, {
+    required: required
+  }), options.map(function (option, i) {
     return /*#__PURE__*/_react["default"].createElement("option", {
       key: i,
-      value: option.value
+      value: option.value,
+      disabled: option.disabled ? option.disabled : false
     }, option.name ? option.name : option.value);
   }));
 };
@@ -157,7 +161,7 @@ var Select = function Select(_ref6) {
 
   var Field = components[fieldType];
   var selectHash = options; // can pass either simple array eg. [1, 2, 3]
-  // or can pass array with objects [{name: 1, value: 1}, {name: 2, value: 2}]
+  // or can pass array with objects [{name: 1, value: 1, disabled: true}, {name: 2, value: 2}]
   // if simple array, must be converted into objects
 
   if (Array.isArray(options) && options[0].constructor !== Object) {
@@ -175,7 +179,8 @@ var Select = function Select(_ref6) {
   }, opts), options ? /*#__PURE__*/_react["default"].createElement(SelectOptions, {
     name: name,
     options: selectHash,
-    defaultValue: defaultValue
+    defaultValue: defaultValue,
+    required: required
   }) : null);
 };
 
